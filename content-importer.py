@@ -16,9 +16,11 @@ from html import unescape
 # CONFIGURATION - UPDATE THESE VALUES
 # =============================================================================
 HYGRAPH_ENDPOINT = "https://eu-west-2-ssc.cdn.hygraph.com/content/cmiwy6t0d001k06w4oqvmieqy/master"  # e.g., https://api-eu-central-1.hygraph.com/v2/xxx/master
-HYGRAPH_TOKEN = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE3NjUxODYwOTAsImF1ZCI6WyJodHRwczovL2FwaS1ldS13ZXN0LTItc3NjLmh5Z3JhcGguY29tL3YyL2NtaXd5NnQwZDAwMWswNnc0b3F2bWllcXkvbWFzdGVyIiwibWFuYWdlbWVudC1uZXh0LmdyYXBoY21zLmNvbSJdLCJpc3MiOiJodHRwczovL21hbmFnZW1lbnQtZXUtd2VzdC0yLXNzYy5oeWdyYXBoLmNvbS8iLCJzdWIiOiJiMDA4OTJmZi03MmZkLTQ3NDYtOWU0Yi0xYjljNTRjNTdmMGQiLCJqdGkiOiJjbWl3eTgwODUwMDZoMDdtbTNodHo3enR6In0.ehkUF-O13cEb4pSGmA7I1mRqQlcrAgG_f3IpPTYOZfM82qvecTKJ2YDFIlfvgZnhr23QHcwK8lTYBSniYPf3v6bNDamB7STPoHfTdWdmqG3-53iv2D4-d7XZwIlOJUkLoha5vV_9Yb58lMNpg_rmUkJzbO4SlMgOS--2TGA79D9VtYw9zqA2XwItNpYefpyqVnwjpAtB9K7Wk02b8QErGhQyvoDVV0EChC0i7lVAZOQNk8hP3spxOCxMLC_4HY6j6VPL5zGUPS-AIN6zVr2gS-kJaEDL0BtnjkFUsfUfUnniv3UtW8JQlq1WYBSUCJgSN0eYhLpYlCW4jhoYs_yi5LT08rPOvavLglGP1LIaTOcyS7UMMLJerkZ7hA51-HG1r9r0JK3lg8R6PQfOABCHUm-NrGMeXqSN0MBPgfcztY508g7qjF2nbWbA4Rxmg0GQiEXK-s3apeLIYYvx3HFMt-dUgWUVdSj6I-Nu_YD3Rkk-LEFXCEXR_LItKjZUyGA4eeFROb6m9SMrNeejeGqgbcq_GTw7SbddTNShGq44a5oEfr3fPKUB7_0Ia8BcYbToHCN52rkrdbXJMyo7_UgUaA1pLye4cUuxkT0RyPQ6G0P9MIAi2ZTJz4GzPE4gagtjsRqwh9cWAj1FrPEA2kmT2GUYmnOqpqJF1ZmLTMpkqH0"  # Create in Project Settings > API Access > Permanent Auth Tokens
-EXCEL_FILE = "Blog_Posts_Export_2025-12-09.xlsx"
-BATCH_SIZE = 25  # Number of unique blog_post_ids to import (set to None for all)
+HYGRAPH_TOKEN = "eyJ2ZXJzaW9uIjozLCJpYXQiOjE3NjUxODYwOTAsImF1ZCI6WyJodHRwczovL2FwaS1ldS13ZXN0LTItc3NjLmh5Z3JhcGguY29tL3YyL2NtaXd5NnQwZDAwMWswNnc0b3F2bWllcXkvbWFzdGVyIiwibWFuYWdlbWVudC1uZXh0LmdyYXBoY21zLmNvbSJdLCJpc3MiOiJodHRwczovL21hbmFnZW1lbnQtZXUtd2VzdC0yLXNzYy5oeWdyYXBoLmNvbS8iLCJzdWIiOiJiMDA4OTJmZi03MmZkLTQ3NDYtOWU0Yi0xYjljNTRjNTdmMGQiLCJqdGkiOiJjbWl3eTgwODUwMDZoMDdtbTNodHo3enR6In0.ehkUF-O13cEb4pSGmA7I1mRqQlcrAgG_f3IpPTYOZfM82qvecTKJ2YDFIlfvgZnhr23QHcwK8lTYBSniYPf3v6bNDamB7STPoHfTdWdmqG3-53iv2D4-d7XZwIlOJUkLoha5vV_9Yb58lMNpg_rmUkJzbO4SlMgOS--2TGA79D9VtYw9zqA2XwItNpYefpyqVnwjpAtB9K7Wk02b8QErGhQyvoDVV0EChC0i7lVAZOQNk8hP3spxOCxMLC_4HY6j6VPL5zGUPS-AIN6zVr2gS-kJaEDL0BtnjkFUsfUfUnniv3UtW8JQlq1WYBSUCJgSN0eYhLpYlCW4jhoYs_yi5LT08rPOvavLglGP1LIaTOcyS7UMMLJerkZ7hA51-HG1r9r0JK3lg8R6PQfOABCHUm-NrGMeXqSN0MBPgfcztY508g7qjF2nbWbA4Rxmg0GQiEXK-s3apeLIYYvx3HFMt-dUgWUVdSj6I-Nu_YD3Rkk-LEFXCEXR_LItKjZUyGA4eeFROb6m9SMrNeejeGqgbcq_GTw7SbddTNShGq44a5oEfr3fPKUB7_0Ia8BcYbToHCN52rkrdbXJMyo7_UgUaA1pLye4cUuxkT0RyPQ6G0P9MIAi2ZTJz4GzPE4gagtjsRqwh9cWAj1FrPEA2kmT2GUYmnOqpqJF1ZmLTMpkqH0"  # Create in Project Settings > API Access > Permanent Auth Tokens
+EXCEL_FILE = "sample_blog_import.xlsx"
+BATCH_SIZE = 3  # Number of unique blog_post_ids to import (set to None for all)
+# Dry run mode - set to True to test without creating entries
+DRY_RUN = True
 # =============================================================================
 
 
@@ -137,8 +139,11 @@ def sanitize_slug(slug):
     return str(slug).replace('/', '-').strip('-')
 
 
-def create_blog_entry(endpoint, token, data):
+def create_blog_entry(endpoint, token, data, dry_run=False):
     """Create a blog entry via Hygraph Content API"""
+    if dry_run:
+        return {"data": {"createBlog": {"id": "dry-run-id", "blogPostId": data.get("blogPostId")}}}
+    
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json"
@@ -184,6 +189,10 @@ def main():
         print("   Make sure it has 'Create' and 'Update' permissions for Blog model")
         return
     
+    if DRY_RUN:
+        print("\n⚠️  DRY RUN MODE - No entries will be created")
+
+        
     # Read Excel file
     print(f"\n📖 Reading {EXCEL_FILE}...")
     try:
@@ -277,7 +286,7 @@ def main():
             mutation_data["localizations"] = {"create": loc_creates}
         
         # Execute mutation
-        result = create_blog_entry(HYGRAPH_ENDPOINT, HYGRAPH_TOKEN, mutation_data)
+        result = create_blog_entry(HYGRAPH_ENDPOINT, HYGRAPH_TOKEN, mutation_data, DRY_RUN)
         
         if "errors" in result:
             print(f"      ❌ Error: {result['errors'][0]['message']}")
