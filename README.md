@@ -20,7 +20,9 @@ Go to Project Settings → API Access
 Edit the script - Update these lines at the top:
 
 HYGRAPH_ENDPOINT = "https://api-eu-central-1.hygraph.com/v2/YOUR_PROJECT/master"
+
 HYGRAPH_TOKEN = "your-permanent-auth-token"
+
 BATCH_SIZE = 5  # Change to None for all 575 entries
 
 Install dependencies:
